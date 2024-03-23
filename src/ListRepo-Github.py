@@ -1,16 +1,9 @@
-#ACCESS_TOKEN = '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'
 import csv
 import requests
 import os
 import shutil
 import datetime
 import json
-
-# Replace 'YOUR_ACCESS_TOKEN' with your GitHub access token
-#ACCESS_TOKEN = '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'
-
-# Replace 'ORG_NAME' with the name of the organization
-#ORG_NAME = 'CAST-Extend'
 
 def list_organization_repos(org_name, access_token, output_type):
     url = f"https://api.github.com/orgs/{org_name}/repos"
