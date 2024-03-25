@@ -5,7 +5,7 @@ import requests
 api_url = "https://rpa.casthighlight.com/WS2/domains/22072/applications"
 
 # Define your bearer token
-bearer_token = "cace75b8-203c-4406-ae27-37bc3443feda"
+bearer_token = "xxxxxxxxxx"
 
 # Define headers
 headers = {

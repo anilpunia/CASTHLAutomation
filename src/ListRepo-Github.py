@@ -90,50 +90,7 @@ def checkout_master_branch(org_name, repo_name, access_token, destination_path):
     except requests.exceptions.RequestException as e:
         print(f"Failed to download {repo_name}. Error: {e}")
         print(f"Moving to the next repository.")
-
-# def download_github_org_metadata(org_name):
-#     start_time = datetime.datetime.now()
-#     log_messages = []
-
-#     try:
-#         # Fetch organization metadata from GitHub API
-#         org_response = requests.get(f"https://api.github.com/orgs/{org_name}")
-#         org_response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
-
-#         org_metadata = org_response.json()
-
-#         # Fetch repositories of the organization
-#         repos_response = requests.get(org_metadata["repos_url"])
-#         repos_response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
-
-#         repos_data = repos_response.json()
-
-#         # Extract name and size information for each repository
-#         repo_info = [{"name": repo["name"], "size": repo["size"]} for repo in repos_data]
-
-#         # Add repository information to organization metadata
-#         org_metadata["repositories"] = repo_info
-
-#         # Save organization metadata to JSON file
-#         with open("GitHub_Metadata.json", "w") as json_file:
-#             json.dump(org_metadata, json_file, indent=4)
-
-#         log_messages.append("Organization metadata downloaded successfully.")
-
-#     except requests.exceptions.RequestException as e:
-#         log_messages.append(f"Error: {str(e)}")
-
-#     end_time = datetime.datetime.now()
-#     total_time = end_time - start_time
-
-#     # Log the start and end time, along with total time taken
-#     with open("download_log.txt", "a") as log_file:
-#         log_file.write(f"Start Time: {start_time}\n")
-#         log_file.write(f"End Time: {end_time}\n")
-#         log_file.write(f"Total Time Taken: {total_time}\n")
-#         for message in log_messages:
-#             log_file.write(message + "\n")
-        
+      
 def get_all_repo_metadata(org_name, access_token):
     start_time = datetime.datetime.now()
     log_messages = []
