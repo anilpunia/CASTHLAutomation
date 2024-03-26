@@ -1,1 +1,0 @@
-Timing:duree de traitement totale 	:1.568618	delta:1.568618 secondes 

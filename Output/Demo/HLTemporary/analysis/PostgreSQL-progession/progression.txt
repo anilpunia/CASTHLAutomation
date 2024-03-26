@@ -1,8 +1,0 @@
-2024-03-26_16:05:48; list; 0; 0; listname; PostgreSQL
-2024-03-26_16:05:48; list; 0; 0; nbfiles; 1
-2024-03-26_16:05:48; file; 0; 0; filename; ColdFusion-Extension-Description-Page/InstallScripts/CastStorageService/DIAG\COLDFUSION_Metrics_SP_CSS.sql
-2024-03-26_16:05:48; file; 0; 0; lines; 1962
-2024-03-26_16:05:48; file; 0; 0; basename; COLDFUSION_Metrics_SP_CSS.sql
-2024-03-26_16:05:48; file; 0; 0; size; 72731
-2024-03-26_16:05:48; file; 0; 0; abort; 1_0
-2024-03-26_16:05:48; list; 0; 0; info; 0

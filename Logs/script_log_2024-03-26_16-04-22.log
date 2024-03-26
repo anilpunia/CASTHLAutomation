@@ -1,8 +1,0 @@
-2024-03-26 16:04:22,190 - INFO - ------------------------------------------------
-2024-03-26 16:04:22,190 - INFO - APPLICATIONS CONFIG PATH: D:\CAST\Development\VSCode\CASTHLAutomation\Config\applications.txt
-2024-03-26 16:04:22,191 - INFO - ------------------------------------------------
-2024-03-26 16:04:22,198 - INFO - Start Time: 2024-03-26 16:04:22
-2024-03-26 16:04:22,198 - INFO - Thread 1 started.
-2024-03-26 16:04:22,199 - INFO - Thread 1 start time: 2024-03-26 16:04:22
-2024-03-26 16:04:22,199 - INFO - Thread 1 processing applications: [['BeverageStarterFlow', '341483'], ['Demo', '163864'], ['Demo-Brio', '330301']]
-2024-03-26 16:04:22,199 - INFO - Analysing Application: BeverageStarterFlow ......

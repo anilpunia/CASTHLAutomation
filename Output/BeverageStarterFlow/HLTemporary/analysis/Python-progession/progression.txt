@@ -1,8 +1,0 @@
-2024-03-26_16:04:25; list; 0; 0; listname; Python
-2024-03-26_16:04:25; list; 0; 0; nbfiles; 1
-2024-03-26_16:04:25; file; 0; 0; filename; com.castsoftware.uc.imsdc\main.py
-2024-03-26_16:04:25; file; 0; 0; lines; 260
-2024-03-26_16:04:26; file; 0; 1; basename; main.py
-2024-03-26_16:04:26; file; 0; 1; size; 10832
-2024-03-26_16:04:26; file; 0; 1; abort; 1_0
-2024-03-26_16:04:26; list; 0; 1; info; 0
