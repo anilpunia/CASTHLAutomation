@@ -51,6 +51,9 @@ def unzip_code(root_folder, extract_path, execution_log_path, time_to_unzip_log_
 
                             # Create a directory with the name of the zip file
                             repo_extract_path = os.path.join(extract_path, repo_name)
+                            if os.path.exists(repo_extract_path) and os.listdir(repo_extract_path):
+                                print(f"Warning: {repo_extract_path} already exists with contents. Skipping extraction for {repo_path}")
+                                continue  # Skip extraction if directory exists with contents
                             os.makedirs(repo_extract_path, exist_ok=True)
 
                             start_time = datetime.datetime.now()

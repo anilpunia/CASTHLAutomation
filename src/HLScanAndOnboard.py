@@ -200,7 +200,7 @@ def process_batch(batch, thread_id, output_txt_file, output_csv_file):
 
     for app_name, app_id in batch:
         #log_file = os.path.join(LOG_FOLDER, f'HLAutomation_{app_name}.log')
-        log_file = os.path.join(RESULTS, f'{app_name}\HLAutomation.log')
+        log_file = os.path.join(RESULTS, rf'{app_name}\HLAutomation.log')
         process_application(app_name, app_id, log_file, output_txt_file, output_csv_file)
 
     end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -213,7 +213,7 @@ if __name__ == "__main__":
 
     try:
         # Read properties from the config file
-        properties = read_properties_file('config\config.properties')
+        properties = read_properties_file(r'config\config.properties')
 
         # Extract properties
         PERL = properties.get('PERL')

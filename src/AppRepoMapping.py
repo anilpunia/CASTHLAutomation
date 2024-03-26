@@ -128,30 +128,3 @@ def create_application_folders(mapping_sheet, repo_folder, output_folder, logger
         else:
             logger.warning(f"Repository '{repo_name}' does not exist for application '{app_name}'.")
             summary_logger.info(f"{app_name};{repo_name};Failed")
-
-
-# if __name__ == "__main__":
-#     # Read configuration from config.properties
-#     config = configparser.ConfigParser()
-#     config_file = input("Enter the path of the configuration file: ")
-#     config.read(config_file)
-
-#     mapping_sheet_path = config['migration']['mapping_sheet']
-#     repo_folder_path = config['migration']['repo_folder']
-#     output_folder_path = config['migration']['output_folder']
-#     log_dir_path = config['migration']['log_dir']
-
-#     # Get current date and time
-#     current_datetime = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-
-#     # Setup logger
-#     log_file=os.path.join(log_dir_path, f"migration_log_{current_datetime}.log")
-#     logger = setup_logger(log_file)
-
-#     # Create summary log file in the same directory as the migration log
-#     summary_log_file = os.path.join(log_dir_path, f"summary_log_{current_datetime}.txt")
-#     summary_logger = create_summary_logger(summary_log_file)
-
-#     # Create application folders and move content
-#     create_application_folders(mapping_sheet_path, repo_folder_path, output_folder_path, logger, summary_logger)
-#     logger.info("Migration process completed.")

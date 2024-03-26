@@ -45,7 +45,7 @@ def get_all_repo_metadata(org_name, access_token, output_file_path, log_file_pat
             json.dump(all_repos, json_file, indent=4)
 
         log_messages.append(f"Metadata for all repositories in organization {org_name} downloaded successfully.")
-
+        print(f"Metadata for all repositories in organization {org_name} downloaded successfully.")
     except requests.exceptions.RequestException as e:
         log_messages.append(f"Error: {str(e)}")
 
@@ -106,6 +106,28 @@ def modify_archive_urls(csv_file_path):
     # Write the modified DataFrame back to the original CSV file
     df.to_csv(csv_file_path, index=False)
 
+def check_column_exists(file_path, column_name):
+    try:
+        # Read the CSV file
+        df = pd.read_csv(file_path)
+        
+        # Check if the column exists
+        if column_name not in df.columns:
+            print(f"Column '{column_name}' does not exist in the CSV file.")
+            return False
+        
+        # Check if the column has data
+        if df[column_name].empty:
+            print(f"Column '{column_name}' exists but has no data.")
+            return False
+        
+        return True
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+        return False
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return False
 def read_csv_data(file_path):
     """
     Reads data from a CSV file.
@@ -124,31 +146,6 @@ def read_csv_data(file_path):
     except Exception as e:
         print(f"Error reading CSV file: {e}")
     return data
-
-def create_directory_if_not_exists(directory_name):
-    """
-    Creates a directory if it doesn't already exist at the parent directory of the script.
-    Parameters:
-        directory_name (str): The name of the directory to be created.
-    """
-    # Get the directory of the script
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # Get the parent directory of the script directory
-    parent_dir = os.path.dirname(script_dir)
-
-    # Combine the parent directory with the specified directory name
-    directory_path = os.path.join(parent_dir, directory_name)
-
-    # Check if the directory exists, if not, create it
-    if not os.path.exists(directory_path):
-        try:
-            os.makedirs(directory_path)
-            #print(f"Directory '{directory_name}' created successfully at {directory_path}.\n")
-        except OSError as e:
-            print(f"Error: {e}")
-    else:
-        print(f"Directory '{directory_name}' already exists at {directory_path}.\n")
 
 def log_start_end_time(repository_name, start_time, end_time, total_time, log_file):
     """
@@ -211,8 +208,10 @@ def download_and_save_code(application_name, repository_url, server_location, to
     """
     #print(f"Inside **Download-And-Save**'.")
     application_name_directory = os.path.join(server_location, application_name)
-    create_directory_if_not_exists(application_name_directory)
-
+        # Check if the 'Output' folder exists, if not, create it
+    if not os.path.exists(application_name_directory):
+        os.makedirs(application_name_directory)
+    
     repository_zip_path = os.path.join(application_name_directory, application_name + '.zip')
     #print(f"repository_zip_path '{repository_zip_path}'.")
     if os.path.exists(repository_zip_path):
@@ -260,9 +259,23 @@ def main():
     output_dir = config.get('Directories', 'output_dir')
     App_Repo_Mapping = config.get('Input-File', 'App_Repo_Mapping')
     src_dir_analyze = config.get('Directories', 'src_dir_analyze')
-    # Create log directory if it doesn't exist
-    create_directory_if_not_exists(logs_dir)
+
+    # Check if the 'Output' folder exists, if not, create it
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
     
+    # Check if the 'Log Dir' folder exists, if not, create it
+    if not os.path.exists(logs_dir):
+        os.makedirs(logs_dir)
+    
+        # Check if the 'Source Dir' folder exists, if not, create it
+    if not os.path.exists(src_dir):
+        os.makedirs(src_dir)
+    
+    # Check if the 'Output' folder exists, if not, create it
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
     while True:
         print("Select options:")
         print("0. Create Highlight Domain and Application")
@@ -280,31 +293,36 @@ def main():
 
     output_type = int(choice)
     if output_type == 1:
-        
-        # Check if the 'Output' folder exists, if not, create it
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        
+          
         # Save repository metadata to JSON file
         output_file_path = os.path.join(output_dir, f"{org_name}_Repositories_Metadata.json")
 
-   
-        # Check if the 'Output' folder exists, if not, create it
-        if not os.path.exists(logs_dir):
-            os.makedirs(logs_dir)
-        
         # Save repository metadata to JSON file
         log_file_path = os.path.join(logs_dir, f"{org_name}_Metadatadownload.log")
         
         # Save repository metadata to CSV file
         output_csv_file_path = os.path.join(output_dir, f"{org_name}_Repositories_Summary.csv")
-
+        
         get_all_repo_metadata(org_name, token, output_file_path, log_file_path)
         json_to_csv(output_file_path, output_csv_file_path)
         modify_archive_urls(output_csv_file_path)
-
+        print(f"Refer Log file {log_file_path} for downloag log and time to downloaded Metadata.")
+        print(f"CSV file generated {output_csv_file_path} with summary of repositories which can be used for downloading source code(Task-2).")
     elif output_type == 2:
-
+        output_csv_file_path = os.path.join(output_dir, f"{org_name}_Repositories_Summary.csv")
+        if not os.path.exists(output_csv_file_path):
+            print("Please run option 1 to download metadata first.")
+            return
+        if not check_column_exists(output_csv_file_path, 'batch_number'):
+            print(f"Column 'batch_number' does not exist in file {output_csv_file_path}. Create new column with name 'batch_number' and enter number of batch you want to run for download.")
+            return
+        if not check_column_exists(output_csv_file_path, 'repo_archive_download_api'):
+            print(f"Column 'repo_archive_download_api' does not exist in file {output_csv_file_path}. Review CSV file and rerun option 1.")
+            return
+        if not check_column_exists(output_csv_file_path, 'name'):
+            print(f"Column 'name' does not exist in file {output_csv_file_path}. Review CSV file and rerun option 1.")
+            return
+        
         #src_dir = input("Directory location to download the source code: ")
         batch = input("Enter batch number to download the source code: ")
        
@@ -325,15 +343,9 @@ def main():
         # Clear log files if they already exist
         open(start_end_log_file, 'w').close()
         open(processing_log_file, 'w').close()
-
-        # Specify the path to the 'Output' folder relative to the script's location
-        #output_folder = os.path.join(os.path.dirname(__file__), '..', 'Output')
-
         # Save repository metadata to CSV file
         output_csv_file_path = os.path.join(output_dir, f"{org_name}_Repositories_Summary.csv")
-
-        data = read_csv_data(output_csv_file_path)
-    
+        data = read_csv_data(output_csv_file_path)  
         for repository in data:
             
             # Check for equality
@@ -353,116 +365,16 @@ def main():
         logger = AppRepoMapping.setup_logger(log_file)
         summary_log_file = os.path.join(logs_dir, f"summary_log_{current_datetime}.txt")
         summary_logger = AppRepoMapping.create_summary_logger(summary_log_file)
+        if not os.path.exists(App_Repo_Mapping):
+            print("Application to repository mapping information is missing, please refer README.md to create mapping spreadhseet.")
+            return
         AppRepoMapping.create_application_folders(App_Repo_Mapping, unzip_dir, src_dir_analyze, logger, summary_logger)
     
     elif output_type == 5:
 
         try:
-                # Extract properties
-                PERL = config.get('HIGHLIGHT-ONBOARDING','PERL')
-                ANALYZER_DIR = config.get('HIGHLIGHT-ONBOARDING','ANALYZER_DIR')
-                SOURCES = config.get('HIGHLIGHT-ONBOARDING','SOURCES')
-                IGNORED_DIR = config.get('HIGHLIGHT-ONBOARDING','IGNORED_DIR')
-                IGNORED_PATHS = config.get('HIGHLIGHT-ONBOARDING','IGNORED_PATHS')
-                IGNORED_FILES = config.get('HIGHLIGHT-ONBOARDING','IGNORED_FILES')
-                URL = config.get('HIGHLIGHT-ONBOARDING','URL')
-                HIGHLIGHT_EXE = config.get('HIGHLIGHT-ONBOARDING','HIGHLIGHT_EXE')
-                LOG_FOLDER = config.get('HIGHLIGHT-ONBOARDING','LOG_FOLDER')
-                COMPANY_ID = config.get('HIGHLIGHT-ONBOARDING','COMPANY_ID')
-                TOKEN = config.get('HIGHLIGHT-ONBOARDING','TOKEN')
-                CONFIG = config.get('HIGHLIGHT-ONBOARDING','CONFIG')
-                RESULTS = config.get('HIGHLIGHT-ONBOARDING','RESULTS')
-                APPLICATIONS_FILE_PATH = config.get('HIGHLIGHT-ONBOARDING','APPLICATIONS_FILE_PATH')
-                BATCH_SIZE = int(config.get('HIGHLIGHT-ONBOARDING','BATCH_SIZE', 1))  # Default batch size is 1
-                MAX_BATCHES = config.get('HIGHLIGHT-ONBOARDING','MAX_BATCHES')
-
-                datetime_now = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-                # Set up logging
-                log_file = os.path.join(LOG_FOLDER, f"script_log_{datetime_now}.log")
-                logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
+                HLScanAndOnboard.main()
                 
-                # Validate config properties
-                properties = HLScanAndOnboard.read_properties_file('config\config.properties')
-                HLScanAndOnboard.validate_config(properties)
-
-                # Check if the APPLICATIONS_FILE_PATH is specified
-                if APPLICATIONS_FILE_PATH is None:
-                    print("Program stopped Because 'APPLICATIONS_FILE_PATH' is not specified in config.properties")
-                    raise ValueError("Program stopped Because 'APPLICATIONS_FILE_PATH' is not specified in config.properties")
-
-                # Check if the LOG_FOLDER is specified
-                if LOG_FOLDER is None:
-                    logging.error("Program stopped Because 'LOG_FOLDER' is not specified in config.properties")
-                    raise ValueError("Program stopped Because 'LOG_FOLDER' is not specified in config.properties")
-
-                logging.info('------------------------------------------------')
-                logging.info(f'APPLICATIONS CONFIG PATH: {APPLICATIONS_FILE_PATH}')
-                logging.info('------------------------------------------------')
-
-                # Create the output csv file
-                output_csv_file = os.path.join(LOG_FOLDER, f'summary_{datetime_now}.csv')
-                with open(output_csv_file, 'w', newline='') as csvfile:
-                    writer = csv.writer(csvfile)
-                    writer.writerow(['Application Name', 'Status', 'Reason', 'Log File Path', 'Start Time', 'End Time', 'Total Time in Minutes'])
-
-                # Create the output txt file
-                output_txt_file = os.path.join(LOG_FOLDER, f'summary_{datetime_now}.txt')
-                with open(output_txt_file, 'w', newline='') as txtfile:
-                    writer = csv.writer(txtfile)
-                    writer.writerow(['Application Name', 'Status', 'Reason', 'Log File Path', 'Start Time', 'End Time', 'Total Time in Minutes'])
-
-                # Read applications from the file
-                with open(APPLICATIONS_FILE_PATH, 'r') as file:
-                    applications = [line.strip().split(';') for line in file]
-                    applications = applications[1:]
-                    # print(applications)
-
-                    duplicates = HLScanAndOnboard.check_duplicate_app_ids(applications)
-                    if duplicates:
-                        logging.error(f'Duplicate Application IDs Found......')
-                        print(f'Duplicate Application IDs Found......')
-                        for app_id in duplicates:
-                            logging.error(f'Duplicate Application ID - {app_id}')
-                            print(f'Duplicate Application ID - {app_id}')
-                        print("Program stopped Because Duplicate Application IDs Found!")
-                        raise ValueError("Program stopped Because Duplicate Application IDs Found!")
-
-                # Record start time
-                start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                logging.info(f'Start Time: {start_time}')
-
-                num_threads = BATCH_SIZE
-                num_batches = (len(applications) + num_threads - 1) // num_threads
-
-                # Divide applications into batches
-                if (MAX_BATCHES != None) and (MAX_BATCHES != '') and (num_batches > int(MAX_BATCHES)):
-                    num_batches = int(MAX_BATCHES)
-                    batches = HLScanAndOnboard.create_fixed_batches(applications, num_batches)
-                    for i, batch in enumerate(batches):
-                        print(f"Batch {i+1}: {batch}\n")           
-                else:
-                    num_threads = BATCH_SIZE
-                    num_batches = (len(applications) + num_threads - 1) // num_threads
-                    batches = [applications[i * num_threads:min((i + 1) * num_threads, len(applications))] for i in range(num_batches)]
-                    for i, batch in enumerate(batches):
-                        print(f"Batch {i+1}: {batch}\n") 
-
-                # Process batches using multi-threading
-                threads = []
-                for i, batch in enumerate(batches, start=1):
-                    thread = threading.Thread(target=HLScanAndOnboard.process_batch, args=(batch, i, output_txt_file, output_csv_file))
-                    threads.append(thread)
-                    thread.start()
-
-                # Wait for all threads to complete
-                for thread in threads:
-                    thread.join()
-
-                # Record end time
-                end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                logging.info(f'End Time: {end_time}')
-
         except Exception as e:
                 logging.error(f'{e}')
 
