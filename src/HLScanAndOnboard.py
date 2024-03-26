@@ -22,40 +22,41 @@ return_code_messages = {
 
 def read_properties_file(filename):
     properties = {}
+    print(f"Reading properties from file: {filename}")
     with open(filename, 'r') as file:
         for line in file:
             line = line.strip()
-            if line and not line.startswith('#'):  # Skip empty lines and comments
+            if line and not line.startswith('#') and not line.startswith('['):  # Skip empty lines and comments
                 key, value = line.split('=', 1)
                 properties[key.strip()] = value.strip()
     return properties
 
 def validate_config(properties):
-    required_params = ['PERL', 'ANALYZER_DIR', 'SOURCES', 'IGNORED_DIR', 'IGNORED_PATHS', 'IGNORED_FILES',
-                       'URL', 'HIGHLIGHT_EXE', 'LOG_FOLDER', 'COMPANY_ID', 'TOKEN', 'CONFIG', 'RESULTS',
-                       'APPLICATIONS_FILE_PATH', 'BATCH_SIZE']
+    required_params = ['highlight_perl_dir', 'highlight_analyzer_dir', 'src_dir_analyze', 'IGNORED_DIR', 'IGNORED_PATHS', 'IGNORED_FILES',
+                       'highlight_base_url', 'highlight_executable', 'logs_dir', 'highlight_company_id', 'highlight_token', 'config_dir', 'RESULTS',
+                       'highlight_application_mapping', 'BATCH_SIZE']
     for key, value in properties.items():
-        if key =='PERL' and not os.path.exists(value):
+        if key =='highlight_perl_dir' and not os.path.exists(value):
             print(f"Program stopped bacause {key} Folder -> {value} does not exists!")
             raise ValueError(f"Program stopped bacause {key} Folder -> {value} does not exists!")
         
-        if key =='ANALYZER_DIR' and not os.path.exists(value):
+        if key =='highlight_analyzer_dir' and not os.path.exists(value):
             print(f"Program stopped bacause {key} Folder -> {value} does not exists.")
             raise ValueError(f"Program stopped bacause {key} Folder -> {value} does not exists.")
         
-        if key =='SOURCES' and not os.path.exists(value):
+        if key =='src_dir_analyze' and not os.path.exists(value):
             print(f"Program stopped bacause {key} Folder -> {value} does not exists.")
             raise ValueError(f"Program stopped bacause {key} Folder -> {value} does not exists.")
         
-        if key =='HIGHLIGHT_EXE' and not os.path.isfile(value):
+        if key =='highlight_executable' and not os.path.isfile(value):
             print(f"Program stopped bacause {key} File -> {value} does not exists.")
             raise ValueError(f"Program stopped bacause {key} File -> {value} does not exists.")
         
-        if key =='LOG_FOLDER' and not os.path.exists(value):
+        if key =='logs_dir' and not os.path.exists(value):
             print(f"Program stopped bacause {key} Folder -> {value} does not exists.")
             raise ValueError(f"Program stopped bacause {key} Folder -> {value} does not exists.")
         
-        if key =='CONFIG' and not os.path.exists(value):
+        if key =='config_dir' and not os.path.exists(value):
             print(f"Program stopped bacause {key} Folder -> {value} does not exists.")
             raise ValueError(f"Program stopped bacause {key} Folder -> {value} does not exists.")
         
@@ -63,11 +64,11 @@ def validate_config(properties):
             print(f"Program stopped bacause {key} Folder -> {value} does not exists.")
             raise ValueError(f"Program stopped bacause {key} Folder -> {value} does not exists.")
         
-        if key =='APPLICATIONS_FILE_PATH' and not os.path.isfile(value):
+        if key =='highlight_application_mapping' and not os.path.isfile(value):
             print((f"Program stopped bacause {key} File -> {value} does not exists."))
             raise ValueError(f"Program stopped bacause {key} File -> {value} does not exists.")
         
-        if key =='URL':
+        if key =='highlight_base_url':
             if not value.endswith(".com") or not validators.url(value):
                 print(f"Program stopped bacause The URL '{value}' is not valid.")
                 raise ValueError(f"Program stopped bacause The URL '{value}' is not valid.")
@@ -123,7 +124,7 @@ def calculate_execution_time(log_file_path):
         logging.error(f"Error reading log file {log_file_path}: {str(e)}")
         return None
 
-def process_application(app_name, app_id, log_file, output_txt_file, output_csv_file):
+def process_application(app_name, app_id, log_file, output_txt_file, output_csv_file, SOURCES, HIGHLIGHT_EXE, ANALYZER_DIR, PERL, URL, TOKEN, COMPANY_ID, IGNORED_DIR, IGNORED_PATHS, IGNORED_FILES, RESULTS):
     try:
         if os.path.exists(log_file):
             os.remove(log_file)
@@ -190,7 +191,7 @@ def process_application(app_name, app_id, log_file, output_txt_file, output_csv_
         writer = csv.writer(txtfile)
         writer.writerow([app_name, status, reason, log_file, start_time, end_time, execution_time])
 
-def process_batch(batch, thread_id, output_txt_file, output_csv_file):
+def process_batch(batch, thread_id, output_txt_file, output_csv_file, RESULTS, SOURCES, HIGHLIGHT_EXE, ANALYZER_DIR, PERL, URL, TOKEN, COMPANY_ID, IGNORED_DIR, IGNORED_PATHS, IGNORED_FILES):
     thread_log_file = f"thread_{thread_id}_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
     logging.basicConfig(filename=thread_log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     logging.info(f'Thread {thread_id} started.')
@@ -201,35 +202,34 @@ def process_batch(batch, thread_id, output_txt_file, output_csv_file):
     for app_name, app_id in batch:
         #log_file = os.path.join(LOG_FOLDER, f'HLAutomation_{app_name}.log')
         log_file = os.path.join(RESULTS, rf'{app_name}\HLAutomation.log')
-        process_application(app_name, app_id, log_file, output_txt_file, output_csv_file)
+        process_application(app_name, app_id, log_file, output_txt_file, output_csv_file, SOURCES, HIGHLIGHT_EXE, ANALYZER_DIR, PERL, URL, TOKEN, COMPANY_ID, IGNORED_DIR, IGNORED_PATHS, IGNORED_FILES, RESULTS)
 
     end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     logging.info(f'Thread {thread_id} end time: {end_time}')
     logging.info(f'Thread {thread_id} finished.')
 
 
-if __name__ == "__main__":
-
+def main():
 
     try:
         # Read properties from the config file
-        properties = read_properties_file(r'config\config.properties')
+        properties = read_properties_file(r'../config/config.properties')
 
         # Extract properties
-        PERL = properties.get('PERL')
-        ANALYZER_DIR = properties.get('ANALYZER_DIR')
-        SOURCES = properties.get('SOURCES')
+        PERL = properties.get('highlight_perl_dir')
+        ANALYZER_DIR = properties.get('highlight_analyzer_dir')
+        SOURCES = properties.get('src_dir')
         IGNORED_DIR = properties.get('IGNORED_DIR')
         IGNORED_PATHS = properties.get('IGNORED_PATHS')
         IGNORED_FILES = properties.get('IGNORED_FILES')
-        URL = properties.get('URL')
-        HIGHLIGHT_EXE = properties.get('HIGHLIGHT_EXE')
-        LOG_FOLDER = properties.get('LOG_FOLDER')
-        COMPANY_ID = properties.get('COMPANY_ID')
-        TOKEN = properties.get('TOKEN')
-        CONFIG = properties.get('CONFIG')
+        URL = properties.get('highlight_base_url')
+        HIGHLIGHT_EXE = properties.get('highlight_executable')
+        LOG_FOLDER = properties.get('logs_dir')
+        COMPANY_ID = properties.get('highlight_company_id')
+        TOKEN = properties.get('highlight_token')
+        CONFIG = properties.get('config_dir')
         RESULTS = properties.get('RESULTS')
-        APPLICATIONS_FILE_PATH = properties.get('APPLICATIONS_FILE_PATH')
+        APPLICATIONS_FILE_PATH = properties.get('highlight_application_mapping')
         BATCH_SIZE = int(properties.get('BATCH_SIZE', 1))  # Default batch size is 1
         MAX_BATCHES = properties.get('MAX_BATCHES')
 
@@ -306,7 +306,7 @@ if __name__ == "__main__":
         # Process batches using multi-threading
         threads = []
         for i, batch in enumerate(batches, start=1):
-            thread = threading.Thread(target=process_batch, args=(batch, i, output_txt_file, output_csv_file))
+            thread = threading.Thread(target=process_batch, args=(batch, i, output_txt_file, output_csv_file, RESULTS, SOURCES, HIGHLIGHT_EXE, ANALYZER_DIR, PERL, URL, TOKEN, COMPANY_ID, IGNORED_DIR, IGNORED_PATHS, IGNORED_FILES))
             threads.append(thread)
             thread.start()
 
@@ -320,3 +320,6 @@ if __name__ == "__main__":
 
     except Exception as e:
         logging.error(f'{e}')
+
+if __name__ == "__main__":
+    main()

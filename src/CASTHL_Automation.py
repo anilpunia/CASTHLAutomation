@@ -8,7 +8,7 @@ import os
 from argparse import ArgumentParser
 import configparser
 import zipfile
-import Unzip_File
+import UnzipFile
 import AppRepoMapping
 import HLScanAndOnboard
 import logging
@@ -33,7 +33,7 @@ def get_all_repo_metadata(org_name, access_token, output_file_path, log_file_pat
             repo_url = f"https://api.github.com/orgs/{org_name}/repos?per_page=200&page={page_number}"
             response = requests.get(repo_url, headers=headers)
             response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
-
+            print (response.raise_for_status)
             repos = response.json()
             if not repos:  # No more repositories on this page
                 break
@@ -80,7 +80,7 @@ def json_to_csv(json_filename, csv_filename):
                 row_data = {key: entry.get(key, '') for key in headers}
                 # Write row to CSV
                 writer.writerow(row_data)
-        #print("Repo Summary CSV file generated successfully.")
+        print("Repo Summary CSV file generated successfully.")
         
     except FileNotFoundError:
         print("File not found.")
@@ -356,7 +356,7 @@ def main():
 
         #Unzip_File.unzip_code(src_dir, unzip_dir, os.path.join(logs_dir, f"Unzip_Execution{current_datetime}.log"), os.path.join(logs_dir, f"Unzip_Time{current_datetime}.log"))
         try:
-            Unzip_File.unzip_code(src_dir, unzip_dir, os.path.join(logs_dir, f"Unzip_Execution{current_datetime}.log"), os.path.join(logs_dir, f"Unzip_Time{current_datetime}.log"))
+            UnzipFile.unzip_code(src_dir, unzip_dir, os.path.join(logs_dir, f"Unzip_Execution{current_datetime}.log"), os.path.join(logs_dir, f"Unzip_Time{current_datetime}.log"))
         except Exception as e:
             print(f"Error occurred during extraction: {e}")
 
@@ -378,8 +378,8 @@ def main():
         except Exception as e:
                 logging.error(f'{e}')
 
-        else:
-                print("Invalid choice.")
+    else:
+            print("Invalid choice.")
 
 
 if __name__ == "__main__":
