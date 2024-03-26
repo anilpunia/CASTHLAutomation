@@ -218,7 +218,7 @@ def main():
         # Extract properties
         PERL = properties.get('highlight_perl_dir')
         ANALYZER_DIR = properties.get('highlight_analyzer_dir')
-        SOURCES = properties.get('src_dir')
+        SOURCES = properties.get('src_dir_analyze')
         IGNORED_DIR = properties.get('IGNORED_DIR')
         IGNORED_PATHS = properties.get('IGNORED_PATHS')
         IGNORED_FILES = properties.get('IGNORED_FILES')

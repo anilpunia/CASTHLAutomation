@@ -1,0 +1,16 @@
+2024-03-26 16:02:24,818 - INFO - ------------------------------------------------
+2024-03-26 16:02:24,819 - INFO - APPLICATIONS CONFIG PATH: D:\CAST\Development\VSCode\CASTHLAutomation\Config\applications.txt
+2024-03-26 16:02:24,819 - INFO - ------------------------------------------------
+2024-03-26 16:02:24,830 - INFO - Start Time: 2024-03-26 16:02:24
+2024-03-26 16:02:24,832 - INFO - Thread 1 started.
+2024-03-26 16:02:24,832 - INFO - Thread 1 start time: 2024-03-26 16:02:24
+2024-03-26 16:02:24,832 - INFO - Thread 1 processing applications: [['BeverageStarterFlow', '341483'], ['Demo', '163864'], ['Demo-Brio', '330301']]
+2024-03-26 16:02:24,833 - ERROR - Analysis for the Application: BeverageStarterFlow is failed because source code not present.
+
+2024-03-26 16:02:24,852 - ERROR - Analysis for the Application: Demo is failed because source code not present.
+
+2024-03-26 16:02:24,859 - ERROR - Analysis for the Application: Demo-Brio is failed because source code not present.
+
+2024-03-26 16:02:24,867 - INFO - Thread 1 end time: 2024-03-26 16:02:24
+2024-03-26 16:02:24,867 - INFO - Thread 1 finished.
+2024-03-26 16:02:24,867 - INFO - End Time: 2024-03-26 16:02:24

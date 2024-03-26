@@ -1,0 +1,96 @@
+2024-03-26 16:05:45,325 INFO  console: Command Line version : 5.5.23-RELEASE
+2024-03-26 16:05:45,328 INFO  console: Preparing analysis...
+2024-03-26 16:05:45,329 INFO  console: Preparation stage completed.
+2024-03-26 16:05:45,329 INFO  console: Analysing...
+2024-03-26 16:05:45,329 INFO  console: Start discovering
+2024-03-26 16:05:45,346 INFO  highlight: D:\CAST\Development\HLCLI\Highlight-Automation-Command\perl\technos\find_technos.pl D:\CAST\CodeDrop\Github\Analyzed\Demo --output=D:\CAST\Development\VSCode\CASTHLAutomation\Output\Demo\HLTemporary\discover --ignore=test,jquery,third-party,lib,3rd-party,COTS,external,node_modules,Tests,Test,Testing,t.ds,.flow.js,.git,.svn,gradlew,.vscode,Samples,.git,.svn, gradle, .circleci, .azure, .vscode,.yaml, .gitignore,.gitmodules, Makefile, .npmignore, .checkstyle, build.xml, gradlew --ignorePath=.*dummy|.*\/[tT]est\_.*|.*\/UnitTest\/.*|.*\/IntegrationTest\/.*|.*node\_modules|.*\/[tT][eE][sS][tT].* --export=csv --nocrashprevent  
+2024-03-26 16:05:45,940 INFO  perl: out: Openning binary lib csv : D:\CAST\Development\VSCode\CASTHLAutomation\Output\Demo\HLTemporary\discover/BinaryLibraries.csv
+2024-03-26 16:05:45,941 INFO  perl: out: Searching files ...
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 100% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 60% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 66% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 62% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 66% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 70% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 72% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 75% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 76% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 78% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 80% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 81% files resolved.
+2024-03-26 16:05:45,941 INFO  perl: out:   ==> 22% files resolved.
+2024-03-26 16:05:46,046 INFO  perl: out:   ==> 21% files resolved.
+2024-03-26 16:05:46,046 INFO  perl: out:   ==> 22% files resolved.
+2024-03-26 16:05:46,046 INFO  perl: out:   ==> 23% files resolved.
+2024-03-26 16:05:46,046 INFO  perl: out:   ==> 25% files resolved.
+2024-03-26 16:05:46,046 INFO  perl: out:   ==> 26% files resolved.
+2024-03-26 16:05:46,046 INFO  perl: out:   ==> 27% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 26% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 27% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 28% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 29% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 30% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 31% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 32% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 33% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 34% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 35% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 36% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 37% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 38% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 34% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 33% files resolved.
+2024-03-26 16:05:46,047 INFO  perl: out: Checking content of file with recognized extensions.
+2024-03-26 16:05:46,047 INFO  perl: out:   ==> 27% files resolved.
+2024-03-26 16:05:46,048 INFO  perl: out: --> 42/155 have been resolved.
+2024-03-26 16:05:46,048 INFO  perl: out: Checking content of 113 files with unrecognized extensions.
+2024-03-26 16:05:46,048 INFO  perl: out: --> 1% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 2% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 3% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 4% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 5% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 6% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 7% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 8% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 9% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 10% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 11% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 12% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 13% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 14% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 15% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 16% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 17% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 18% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 19% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 20% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 21% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 22% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 23% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 24% files processed
+2024-03-26 16:05:46,048 INFO  perl: out: --> 25% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 26% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 27% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 28% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 29% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 30% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 31% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 32% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 33% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 34% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 35% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 36% files processed
+2024-03-26 16:05:46,154 INFO  perl: out: --> 37% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 38% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 39% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 40% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 41% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 42% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 43% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 44% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 45% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 46% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 47% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 48% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 49% files processed
+2024-03-26 16:05:46,155 INFO  perl: out: --> 50% files processed

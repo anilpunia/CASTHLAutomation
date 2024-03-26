@@ -1,0 +1,118 @@
+2024-03-26 16:04:22,914 INFO  console: Command Line version : 5.5.23-RELEASE
+2024-03-26 16:04:22,917 INFO  console: Preparing analysis...
+2024-03-26 16:04:22,919 INFO  console: Preparation stage completed.
+2024-03-26 16:04:22,919 INFO  console: Analysing...
+2024-03-26 16:04:22,920 INFO  console: Start discovering
+2024-03-26 16:04:22,933 INFO  highlight: D:\CAST\Development\HLCLI\Highlight-Automation-Command\perl\technos\find_technos.pl D:\CAST\CodeDrop\Github\Analyzed\BeverageStarterFlow --output=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\discover --ignore=test,jquery,third-party,lib,3rd-party,COTS,external,node_modules,Tests,Test,Testing,t.ds,.flow.js,.git,.svn,gradlew,.vscode,Samples,.git,.svn, gradle, .circleci, .azure, .vscode,.yaml, .gitignore,.gitmodules, Makefile, .npmignore, .checkstyle, build.xml, gradlew --ignorePath=.*dummy|.*\/[tT]est\_.*|.*\/UnitTest\/.*|.*\/IntegrationTest\/.*|.*node\_modules|.*\/[tT][eE][sS][tT].* --export=csv --nocrashprevent  
+2024-03-26 16:04:23,892 INFO  perl: out: Openning binary lib csv : D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\discover/BinaryLibraries.csv
+2024-03-26 16:04:23,892 INFO  perl: out: Searching files ...
+2024-03-26 16:04:23,893 INFO  perl: out:   ==> 25% files resolved.
+2024-03-26 16:04:23,893 INFO  perl: out: Checking content of file with recognized extensions.
+2024-03-26 16:04:23,893 INFO  perl: out: --> 1/35 have been resolved.
+2024-03-26 16:04:23,893 INFO  perl: out: Checking content of 34 files with unrecognized extensions.
+2024-03-26 16:04:23,893 INFO  perl: out: --> 2% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 5% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 8% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 11% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 14% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 17% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 20% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 23% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 26% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 29% files processed
+2024-03-26 16:04:23,893 INFO  perl: out: --> 32% files processed
+2024-03-26 16:04:24,001 INFO  perl: out: --> 35% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 38% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 41% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 44% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 47% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 50% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 52% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 55% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 58% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 61% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 64% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 67% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 70% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 73% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 76% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 79% files processed
+2024-03-26 16:04:24,002 INFO  perl: out: --> 82% files processed
+2024-03-26 16:04:24,003 INFO  perl: out: --> 85% files processed
+2024-03-26 16:04:24,003 INFO  perl: out: --> 88% files processed
+2024-03-26 16:04:24,003 INFO  perl: out: --> 91% files processed
+2024-03-26 16:04:24,003 INFO  perl: out: --> 94% files processed
+2024-03-26 16:04:24,003 INFO  perl: out: --> 97% files processed
+2024-03-26 16:04:24,003 INFO  perl: out: --> 100% files processed
+2024-03-26 16:04:24,003 INFO  perl: out: --> 1/35 have been resolved.
+2024-03-26 16:04:24,003 INFO  perl: out: Checking content of file using context.
+2024-03-26 16:04:24,003 INFO  perl: out: --> 1/35 have been resolved.
+2024-03-26 16:04:24,003 INFO  perl: out: HIGHLIGHT analyzer version : 5.5.23-RELEASE
+2024-03-26 16:04:24,003 INFO  perl: out: Set option output to D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\discover
+2024-03-26 16:04:24,003 INFO  perl: out: Set option ignore to test,jquery,third-party,lib,3rd-party,COTS,external,node_modules,Tests,Test,Testing,t.ds,.flow.js,.git,.svn,gradlew,.vscode,Samples,.git,.svn, gradle, .circleci, .azure, .vscode,.yaml, .gitignore,.gitmodules, Makefile, .npmignore, .checkstyle, build.xml, gradlew
+2024-03-26 16:04:24,003 INFO  perl: out: Set option ignorePath to .*dummy|.*\/[tT]est\_.*|.*\/UnitTest\/.*|.*\/IntegrationTest\/.*|.*node\_modules|.*\/[tT][eE][sS][tT].*
+2024-03-26 16:04:24,003 INFO  perl: out: Set option export to csv
+2024-03-26 16:04:24,003 INFO  perl: out: Set option nocrashprevent to ON
+2024-03-26 16:04:24,003 INFO  perl: out: WARNING : parameter  will be ignored !!
+2024-03-26 16:04:24,003 INFO  perl: out: WARNING : parameter  will be ignored !!
+2024-03-26 16:04:24,008 INFO  console: Start analyzing
+2024-03-26 16:04:24,009 INFO  console: Processing technos: Python
+2024-03-26 16:04:24,014 INFO  highlight: Processing: Python for 1 files
+2024-03-26 16:04:24,014 INFO  console: Processing: Python for 1 files
+2024-03-26 16:04:24,024 INFO  highlight: D:\CAST\Development\HLCLI\Highlight-Automation-Command\perl\Analyse.pl --dir-source=D:\CAST\CodeDrop\Github\Analyzed\BeverageStarterFlow --nocrashprevent --app_type=exhaustive --dir-debug=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis\debug --dir-output=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis --ignore=test,jquery,third-party,lib,3rd-party,COTS,external,node_modules,Tests,Test,Testing,t.ds,.flow.js,.git,.svn,gradlew,.vscode,Samples,.git,.svn, gradle, .circleci, .azure, .vscode,.yaml, .gitignore,.gitmodules, Makefile, .npmignore, .checkstyle, build.xml, gradlew --ignorePaths=.*dummy|.*\/[tT]est\_.*|.*\/UnitTest\/.*|.*\/IntegrationTest\/.*|.*node\_modules|.*\/[tT][eE][sS][tT].* --dir-dialog=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis\Python-progession --language=Python --file-list=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\discover\listPython.txt --CloudReady --GreenIT --frameworks --o=Python.csv
+2024-03-26 16:04:25,885 INFO  perl: out: cmd_line:--dir-source=D:\CAST\CodeDrop\Github\Analyzed\BeverageStarterFlow --nocrashprevent --app_type=exhaustive --dir-debug=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis\debug --dir-output=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis --ignore=test,jquery,third-party,lib,3rd-party,COTS,external,node_modules,Tests,Test,Testing,t.ds,.flow.js,.git,.svn,gradlew,.vscode,Samples,.git,.svn, gradle, .circleci, .azure, .vscode,.yaml, .gitignore,.gitmodules, Makefile, .npmignore, .checkstyle, build.xml, gradlew --ignorePaths=.*dummy|.*\/[tT]est\_.*|.*\/UnitTest\/.*|.*\/IntegrationTest\/.*|.*node\_modules|.*\/[tT][eE][sS][tT].* --dir-dialog=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis\Python-progession --language=Python --file-list=D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\discover\listPython.txt --CloudReady --GreenIT --frameworks --o=Python.csv
+2024-03-26 16:04:25,994 INFO  perl: out: Analyzer: Python -> AnaPython
+2024-03-26 16:04:25,994 INFO  perl: out: File = com.castsoftware.uc.imsdc\main.py ; size = 10832
+2024-03-26 16:04:26,212 INFO  perl: out: Launching analyzer AnaPython
+2024-03-26 16:04:27,478 INFO  perl: out: [framework] output file set to D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis//Python-20240326_1604.framework.csv.
+2024-03-26 16:04:27,478 INFO  perl: out: [CloudReady] output file set to D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis//Python-20240326_1604.CloudReady.csv.
+2024-03-26 16:04:27,478 INFO  perl: out: [GreenIT] output file set to D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis//Python-20240326_1604.GreenIT.csv.
+2024-03-26 16:04:27,478 INFO  perl: out: HIGHLIGHT analyzer version : 5.5.23-RELEASE
+2024-03-26 16:04:27,478 INFO  perl: out: Project directory assumed to be : D:\CAST\CodeDrop\Github\Analyzed\BeverageStarterFlow (from option --dir-source)
+2024-03-26 16:04:27,478 INFO  perl: out: ***** FrameWorkDetection *****
+2024-03-26 16:04:27,478 INFO  perl: out: [framework] external framework detection patterns loaded.
+2024-03-26 16:04:27,478 INFO  perl: out: ORIGINAL FILE NAME = com.castsoftware.uc.imsdc\main.py
+2024-03-26 16:04:27,689 INFO  highlight: Copy D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\discover\BinaryLibraries.csv to D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysisBinaryLibraries.csv
+2024-03-26 16:04:27,701 INFO  highlight: End analysis process : CSV results in D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLTemporary\analysis
+2024-03-26 16:04:27,701 INFO  console: Analysis stage completed.
+2024-03-26 16:04:27,701 INFO  console: Uploading...
+2024-03-26 16:04:28,030 INFO  highlight: Upload start
+2024-03-26 16:04:28,759 INFO  highlight: RETRY FETCH COMPANY ID 0
+2024-03-26 16:04:33,829 INFO  highlight: RETRY FETCH COMPANY ID 1
+2024-03-26 16:04:38,891 INFO  highlight: RETRY FETCH COMPANY ID 2
+2024-03-26 16:04:43,955 INFO  highlight: RETRY FETCH COMPANY ID 3
+2024-03-26 16:04:49,015 INFO  highlight: RETRY FETCH COMPANY ID 4
+2024-03-26 16:04:54,080 INFO  highlight: RETRY FETCH COMPANY ID 5
+2024-03-26 16:04:59,152 INFO  highlight: RETRY FETCH COMPANY ID 6
+2024-03-26 16:05:04,226 INFO  highlight: RETRY FETCH COMPANY ID 7
+2024-03-26 16:05:09,288 INFO  highlight: RETRY FETCH COMPANY ID 8
+2024-03-26 16:05:14,366 INFO  highlight: RETRY FETCH COMPANY ID 9
+2024-03-26 16:05:19,436 INFO  highlight: RETRY FETCH COMPANY ID 10
+2024-03-26 16:05:24,507 INFO  highlight: RETRY FETCH COMPANY ID 11
+2024-03-26 16:05:29,576 INFO  highlight: RETRY FETCH COMPANY ID 12
+2024-03-26 16:05:34,645 INFO  highlight: RETRY FETCH COMPANY ID 13
+2024-03-26 16:05:39,712 INFO  highlight: RETRY FETCH COMPANY ID 14
+2024-03-26 16:05:44,776 ERROR AnalysisPipeline: Upload failed
+com.castsoftware.highlight.RTExceptionWithStatus: Failed to fetch company with id='22072'
+	at com.castsoftware.highlight.RTExceptionWithStatus.errUpload(RTExceptionWithStatus.java:60)
+	at com.castsoftware.highlight.upload.Upload.fetchCompanyId(Upload.java:126)
+	at com.castsoftware.highlight.upload.Upload.process(Upload.java:445)
+	at com.castsoftware.highlight.AnalysisPipeline.upload(AnalysisPipeline.java:265)
+	at com.castsoftware.highlight.AnalysisPipeline.process(AnalysisPipeline.java:136)
+	at com.castsoftware.highlight.CommandLine.run(CommandLine.java:555)
+	at com.castsoftware.highlight.HighlightAutomation.main(HighlightAutomation.java:15)
+Caused by: java.lang.IllegalArgumentException: Failed to fetch company with id='22072'
+	... 6 common frames omitted
+Caused by: org.springframework.web.client.HttpClientErrorException$Unauthorized: 401 : "{"error":"invalid_token","error_description":"Invalid access token: cfa8b27f-d79d-4af7-9dee-f3040ab2147e"}"
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:105)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:168)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:122)
+	at com.castsoftware.highlight.util.RestTemplateSSL$1.handleError(RestTemplateSSL.java:108)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:825)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:783)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:717)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:637)
+	at com.castsoftware.highlight.upload.Upload.fetchCompanyId(Upload.java:108)
+	... 5 common frames omitted
+2024-03-26 16:05:44,789 ERROR console: (5) Command Line result upload error

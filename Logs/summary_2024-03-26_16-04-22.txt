@@ -1,0 +1,2 @@
+Application Name,Status,Reason,Log File Path,Start Time,End Time,Total Time in Minutes
+BeverageStarterFlow,Failed,Error Code-5 : Command Line result upload error,D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLAutomation.log,2024-03-26 16:04:22.91,2024-03-26 16:05:44.78,1.36

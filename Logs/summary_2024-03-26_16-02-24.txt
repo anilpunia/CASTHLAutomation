@@ -1,0 +1,4 @@
+Application Name,Status,Reason,Log File Path,Start Time,End Time,Total Time in Minutes
+BeverageStarterFlow,Failed,Source code not present,D:\CAST\Development\VSCode\CASTHLAutomation\Output\BeverageStarterFlow\HLAutomation.log,N/A,N/A,N/A
+Demo,Failed,Source code not present,D:\CAST\Development\VSCode\CASTHLAutomation\Output\Demo\HLAutomation.log,N/A,N/A,N/A
+Demo-Brio,Failed,Source code not present,D:\CAST\Development\VSCode\CASTHLAutomation\Output\Demo-Brio\HLAutomation.log,N/A,N/A,N/A
